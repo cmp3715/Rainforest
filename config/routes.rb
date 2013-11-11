@@ -53,4 +53,7 @@ Rainforest::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  Rainforest::Application.routes.draw do
+  resources :products
+end
 end
