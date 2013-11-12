@@ -5,8 +5,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-  if current_user
-    @review = @product.reviews.build
+    if current_user
+      @review = @product.reviews.build
+    end
   end
 
   def new
@@ -42,7 +43,9 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_path
   end
+  
   private
+
   def product_params
     params.require(:product).permit(:name, :description, :price_in_cents)
   end
