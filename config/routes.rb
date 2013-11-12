@@ -1,4 +1,7 @@
 Rainforest::Application.routes.draw do
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
   get "users/new"
   get "users/create"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -56,9 +59,14 @@ Rainforest::Application.routes.draw do
   #     resources :products
   #   end
   Rainforest::Application.routes.draw do
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
   get "users/new"
   get "users/create"
   resources :products
   resources :users, :only => [:new, :create]
+  resources :sessions, :only => [:new, :create, :destroy]
+  
 end
 end
