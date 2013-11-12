@@ -1,4 +1,7 @@
 Rainforest::Application.routes.draw do
+  get "reviews/show"
+  get "reviews/new"
+  get "reviews/edit"
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
@@ -59,14 +62,19 @@ Rainforest::Application.routes.draw do
   #     resources :products
   #   end
   Rainforest::Application.routes.draw do
+  get "reviews/show"
+  get "reviews/new"
+  get "reviews/edit"
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
   get "users/new"
   get "users/create"
-  resources :products
+  resources :products do
+  resources :reviews, :except => [:index]
   resources :users, :only => [:new, :create]
   resources :sessions, :only => [:new, :create, :destroy]
   
+end
 end
 end
